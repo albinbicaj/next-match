@@ -1,20 +1,58 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --primary: 322 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 262 83% 58%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 239 84% 67%;
+    --accent-foreground: 0 0% 100%;
+    --background: 240 10% 98%;
+    --foreground: 240 10% 3.9%;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 min-h-screen antialiased;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(236, 72, 153, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.05) 0px, transparent 50%);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
+@layer components {
+  .hero-container {
+    @apply min-h-[calc(100vh-80px)] flex flex-col items-center justify-center relative overflow-hidden;
+  }
+
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-[0_8px_32px_0_rgba(31,38,135,0.15)];
+  }
+
+  .input-premium {
+    @apply transition-all duration-300 focus:scale-[1.01] active:scale-[0.99];
+  }
+
+  .btn-gradient {
+    @apply bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-600 text-white font-bold transition-all duration-300 hover:shadow-[0_0_20px_rgba(236,72,153,0.4)] active:scale-95;
+  }
+}
+
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
 }

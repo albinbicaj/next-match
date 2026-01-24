@@ -1,19 +1,8 @@
-"use client";
+import { auth } from "./auth";
+import HomeClient from "./components/HomeClient";
 
-import { Button } from "@heroui/button";
-import Link from "next/link";
-import { FaRegSmile } from "react-icons/fa";
+export default async function Home() {
+  const session = await auth();
 
-export default function Home() {
-  return (
-    <Button
-      href='/members'
-      as={Link}
-      color='primary'
-      variant='bordered'
-      startContent={<FaRegSmile />}
-    >
-      Click me
-    </Button>
-  );
+  return <HomeClient session={session} />;
 }
