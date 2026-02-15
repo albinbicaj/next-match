@@ -15,11 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-      >
+      <body>
         <Providers>
           <TopNav />
-          <main className="hero-container">
+          <main className="flex flex-col min-h-[calc(100vh-80px)] pt-20">
             {children}
           </main>
         </Providers>
@@ -27,3 +26,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+
